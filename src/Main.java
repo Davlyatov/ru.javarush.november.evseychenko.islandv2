@@ -24,14 +24,11 @@ public class Main {
         }
         island.fillAnimals();
         island.showIsland();
-        System.out.println("Type 'go' for start simulation or 'exit' to close the program");
+        System.out.println("Type 'go' for start simulation");
         String command = new Scanner(System.in).nextLine();
-        while (!command.equals("go") || !command.equals("exit")) {
-            System.out.println("Type 'go' for start simulation or 'exit' to close the program");
+        while (!command.equals("go")) {
+            System.out.println("Type 'go' for start simulation");
             command = new Scanner(System.in).nextLine();
-            if (command.equals("exit")) {
-                System.exit(0);
-            }
         }
         ScheduledExecutorService executorService = Executors.newScheduledThreadPool(3);
         executorService.scheduleAtFixedRate(new Simulation(island, settings), 0, 3, TimeUnit.SECONDS);

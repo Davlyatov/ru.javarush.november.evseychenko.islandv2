@@ -1,40 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b0183a3-0b1a-4420-89f1-ed9ca130edf4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/island3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/Animal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/Herbivore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/Plant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/Predator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/herbivores/Boar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/herbivores/Buffalo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/herbivores/Caterpillar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/herbivores/Deer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/herbivores/Duck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/herbivores/Goat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/herbivores/Horse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/herbivores/Mouse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/herbivores/Rabbit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/herbivores/Sheep.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/predators/Bear.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/predators/Eagle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/predators/Fox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/predators/Snake.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/animals/predators/Wolf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utilities/Directions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utilities/Island.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utilities/PercentsForEat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utilities/Settings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utilities/Simulation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utilities/settings.txt" afterDir="false" />
-    </list>
+    <list default="true" id="0b0183a3-0b1a-4420-89f1-ed9ca130edf4" name="Changes" comment="island v1.0" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,6 +50,14 @@
       <option name="presentableId" value="Default" />
       <updated>1671911557115</updated>
     </task>
+    <task id="LOCAL-00001" summary="island v1.0">
+      <created>1671912551174</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1671912551174</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -95,5 +70,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="island v1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="island v1.0" />
   </component>
 </project>

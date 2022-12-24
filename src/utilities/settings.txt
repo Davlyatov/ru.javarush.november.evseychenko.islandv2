@@ -1,0 +1,96 @@
+island height 50
+island width 50
+
+wolf weight 50
+wolf maxInCell 30
+wolf maxCellSpeed 3
+wolf saturationFood 8
+wolf image 🐺
+
+snake weight 15
+snake maxInCell 1
+snake maxCellSpeed 3
+snake saturationFood 3
+snake image 🐍
+
+fox weight 8
+fox maxInCell 30
+fox maxCellSpeed 2
+fox saturationFood 2
+fox image 🦊
+
+bear weight 500
+bear maxInCell 5
+bear maxCellSpeed 2
+bear saturationFood 80
+bear image 🐻
+
+eagle weight 6
+eagle maxInCell 20
+eagle maxCellSpeed 3
+eagle saturationFood 1
+eagle image 🦅
+
+horse weight 400
+horse maxInCell 30
+horse maxCellSpeed 4
+horse saturationFood 60
+horse image 🐎
+
+deer weight 300
+deer maxInCell 20
+deer maxCellSpeed 4
+deer saturationFood 50
+deer image 🦌
+
+rabbit weight 2
+rabbit maxInCell 150
+rabbit maxCellSpeed 2
+rabbit saturationFood 0.45
+rabbit image 🐇
+
+mouse weight 0.05
+mouse maxInCell 500
+mouse maxCellSpeed 1
+mouse saturationFood 0.01
+mouse image 🐁
+
+goat weight 60
+goat maxInCell 140
+goat maxCellSpeed 3
+goat saturationFood 10
+goat image 🐐
+
+sheep weight 70
+sheep maxInCell 140
+sheep maxCellSpeed 3
+sheep saturationFood 15
+sheep image 🐑
+
+boar weight 400
+boar maxInCell 50
+boar maxCellSpeed 2
+boar saturationFood 50
+boar image 🐗
+
+buffalo weight 700
+buffalo maxInCell 10
+buffalo maxCellSpeed 3
+buffalo saturationFood 100
+buffalo image 🐃
+
+duck weight 1
+duck maxInCell 200
+duck maxCellSpeed 4
+duck saturationFood 0.15
+duck image 🦆
+
+caterpillar weight 0.01
+caterpillar maxInCell 1000
+caterpillar maxCellSpeed 0
+caterpillar saturationFood 0
+caterpillar image 🐛
+
+plant weight 1
+plant maxInCell 200
+plant image 🌿

@@ -21,13 +21,13 @@ public class Island {
         int island_width = Integer.parseInt(settings.settingsMap.get("island width"));
         mobMapFilling();
         location = new ArrayList[island_height][island_width];
-        Thread[] spawnThreads = new Thread[island_height*island_width];
-        int i=0;
+        Thread[] spawnThreads = new Thread[island_height * island_width];
+        int i = 0;
         for (int x = 0; x < location.length; x++) {
             for (int y = 0; y < location[x].length; y++) {
                 int finalX = x;
                 int finalY = y;
-                Thread thread = new Thread(() -> spawnInCell(location,finalX,finalY));
+                Thread thread = new Thread(() -> spawnInCell(location, finalX, finalY));
                 spawnThreads[i] = thread;
                 i++;
             }
@@ -45,9 +45,9 @@ public class Island {
         if (plantOrMob == 0) {
             location[x][y] = null;
         } else if (plantOrMob == 1) {
-            spawnPredator(location,x,y);
+            spawnPredator(location, x, y);
         } else if (plantOrMob == 2) {
-            spawnHerbivore(location,x,y);
+            spawnHerbivore(location, x, y);
         } else {
             location[x][y] = new ArrayList<Plant>();
             int count = randomMobInCellCount(settings.settingsMap.get("plant maxInCell"));
@@ -135,7 +135,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("goat saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("goat maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Goat( weight, saturationFood, speed));
+                location[x][y].add(new Goat(weight, saturationFood, speed));
                 int value = islandMobCount.get("goat");
                 value++;
                 islandMobCount.replace("goat", value);
@@ -148,7 +148,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("horse saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("horse maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Horse( weight, saturationFood, speed));
+                location[x][y].add(new Horse(weight, saturationFood, speed));
                 int value = islandMobCount.get("horse");
                 value++;
                 islandMobCount.replace("horse", value);
@@ -172,7 +172,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("rabbit saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("rabbit maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Rabbit( weight, saturationFood, speed));
+                location[x][y].add(new Rabbit(weight, saturationFood, speed));
                 int value = islandMobCount.get("rabbit");
                 value++;
                 islandMobCount.replace("rabbit", value);
@@ -246,7 +246,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("snake saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("snake maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Snake( weight, saturationFood, speed));
+                location[x][y].add(new Snake(weight, saturationFood, speed));
                 int value = islandMobCount.get("snake");
                 value++;
                 islandMobCount.replace("snake", value);
@@ -259,7 +259,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("wolf saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("wolf maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Wolf( weight, saturationFood, speed));
+                location[x][y].add(new Wolf(weight, saturationFood, speed));
                 int value = islandMobCount.get("wolf");
                 value++;
                 islandMobCount.replace("wolf", value);
@@ -270,22 +270,22 @@ public class Island {
 
 
     public void showIsland() {
-        for (Map.Entry<String, Integer> pair : islandMobCount.entrySet()) {
-            String key = pair.getKey();
-            int value = pair.getValue();
-            System.out.println(settings.settingsMap.get(key + " image") + " " + value);
-        }
-//        for (ArrayList[] arrayLists : location) {
-//            for (ArrayList arrayList : arrayLists) {
-//                if (arrayList == null || arrayList.size() == 0) {
-//                    System.out.print("      |");
-//                } else {
-//                    String image = settings.settingsMap.get(arrayList.get(0).getClass().getSimpleName().toLowerCase()+" image");
-//                    System.out.print(image+arrayList.size()+"|");
-//                }
-//            }
-//            System.out.println();
+//        for (Map.Entry<String, Integer> pair : islandMobCount.entrySet()) {
+//            String key = pair.getKey();
+//            int value = pair.getValue();
+//            System.out.println(settings.settingsMap.get(key + " image") + " " + value);
 //        }
+        for (ArrayList[] arrayLists : location) {
+            for (ArrayList arrayList : arrayLists) {
+                if (arrayList == null || arrayList.size() == 0) {
+                    System.out.print("      |");
+                } else {
+                    String image = settings.settingsMap.get(arrayList.get(0).getClass().getSimpleName().toLowerCase() + " image");
+                    System.out.print(image + arrayList.size() + "|");
+                }
+            }
+            System.out.println();
+        }
     }
 
     private static int randomMobInCellCount(String maxInCell) {

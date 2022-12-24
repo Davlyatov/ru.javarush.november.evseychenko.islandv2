@@ -295,7 +295,7 @@ public class PercentsForEat {
     }
 
     public int getPercent(String eater, String victim) {
-        if (eatPercents.containsKey(eater)&&eatPercents.get(eater).containsKey(victim)){
+        if (eatPercents.containsKey(eater) && eatPercents.get(eater).containsKey(victim)) {
             return eatPercents.get(eater).get(victim);
         }
         return -1;

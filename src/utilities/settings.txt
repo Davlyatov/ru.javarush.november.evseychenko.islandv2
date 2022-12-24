@@ -1,5 +1,5 @@
-island height 50
-island width 50
+island height 15
+island width 15
 
 wolf weight 50
 wolf maxInCell 30

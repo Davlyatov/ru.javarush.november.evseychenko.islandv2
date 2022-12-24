@@ -13,7 +13,7 @@ import static utilities.Directions.*;
 
 public class Predator extends Animal {
 
-    public Predator( double weight, double saturationWeight, int speed) {
+    public Predator(double weight, double saturationWeight, int speed) {
         this.id = count.incrementAndGet();
         this.weight = weight;
         this.saturationWeight = saturationWeight;

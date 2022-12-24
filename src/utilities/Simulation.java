@@ -96,7 +96,7 @@ public class Simulation implements Runnable {
                 island.location[x][y].add(new Plant(weight));
                 int count = Island.islandMobCount.get("plant");
                 count++;
-                Island.islandMobCount.replace("plant",count);
+                Island.islandMobCount.replace("plant", count);
             }
         }
     }
@@ -112,7 +112,7 @@ public class Simulation implements Runnable {
                 island.location[x][y].add(new Plant(weight));
                 int count = Island.islandMobCount.get("plant");
                 count++;
-                Island.islandMobCount.replace("plant",count);
+                Island.islandMobCount.replace("plant", count);
             }
         }
     }
@@ -132,70 +132,70 @@ public class Simulation implements Runnable {
                     island.location[x][y].add(new Boar(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("boar");
                     count++;
-                    Island.islandMobCount.replace("boar",count);
+                    Island.islandMobCount.replace("boar", count);
                 }
             } else if (currentMobInCell instanceof Buffalo) {
                 if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Buffalo) currentMobInCell).weight * 2 == weight) {
                     island.location[x][y].add(new Buffalo(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("buffalo");
                     count++;
-                    Island.islandMobCount.replace("buffalo",count);
+                    Island.islandMobCount.replace("buffalo", count);
                 }
             } else if (currentMobInCell instanceof Caterpillar) {
                 if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell) {
                     island.location[x][y].add(new Caterpillar(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("caterpillar");
                     count++;
-                    Island.islandMobCount.replace("caterpillar",count);
+                    Island.islandMobCount.replace("caterpillar", count);
                 }
             } else if (currentMobInCell instanceof Deer) {
                 if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Deer) currentMobInCell).weight * 2 == weight) {
                     island.location[x][y].add(new Deer(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("deer");
                     count++;
-                    Island.islandMobCount.replace("deer",count);
+                    Island.islandMobCount.replace("deer", count);
                 }
             } else if (currentMobInCell instanceof Duck) {
                 if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Duck) currentMobInCell).weight * 2 == weight) {
                     island.location[x][y].add(new Duck(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("duck");
                     count++;
-                    Island.islandMobCount.replace("duck",count);
+                    Island.islandMobCount.replace("duck", count);
                 }
             } else if (currentMobInCell instanceof Goat) {
                 if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Goat) currentMobInCell).weight * 2 == weight) {
                     island.location[x][y].add(new Goat(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("goat");
                     count++;
-                    Island.islandMobCount.replace("goat",count);
+                    Island.islandMobCount.replace("goat", count);
                 }
             } else if (currentMobInCell instanceof Horse) {
                 if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Horse) currentMobInCell).weight * 2 == weight) {
                     island.location[x][y].add(new Horse(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("horse");
                     count++;
-                    Island.islandMobCount.replace("horse",count);
+                    Island.islandMobCount.replace("horse", count);
                 }
             } else if (currentMobInCell instanceof Mouse) {
                 if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Mouse) currentMobInCell).weight * 2 == weight) {
                     island.location[x][y].add(new Mouse(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("mouse");
                     count++;
-                    Island.islandMobCount.replace("mouse",count);
+                    Island.islandMobCount.replace("mouse", count);
                 }
             } else if (currentMobInCell instanceof Rabbit) {
                 if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Rabbit) currentMobInCell).weight * 2 == weight) {
                     island.location[x][y].add(new Rabbit(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("rabbit");
                     count++;
-                    Island.islandMobCount.replace("rabbit",count);
+                    Island.islandMobCount.replace("rabbit", count);
                 }
             } else if (currentMobInCell instanceof Sheep) {
                 if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Sheep) currentMobInCell).weight * 2 == weight) {
                     island.location[x][y].add(new Sheep(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("sheep");
                     count++;
-                    Island.islandMobCount.replace("sheep",count);
+                    Island.islandMobCount.replace("sheep", count);
                 }
             }
         }
@@ -216,35 +216,35 @@ public class Simulation implements Runnable {
                     island.location[x][y].add(new Bear(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("bear");
                     count++;
-                    Island.islandMobCount.replace("bear",count);
+                    Island.islandMobCount.replace("bear", count);
                 }
             } else if (currentMobInCell instanceof Eagle) {
                 if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Eagle) currentMobInCell).weight * 2 == weight) {
                     island.location[x][y].add(new Eagle(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("eagle");
                     count++;
-                    Island.islandMobCount.replace("eagle",count);
+                    Island.islandMobCount.replace("eagle", count);
                 }
             } else if (currentMobInCell instanceof Fox) {
                 if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Fox) currentMobInCell).weight * 2 == weight) {
                     island.location[x][y].add(new Fox(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("fox");
                     count++;
-                    Island.islandMobCount.replace("fox",count);
+                    Island.islandMobCount.replace("fox", count);
                 }
             } else if (currentMobInCell instanceof Snake) {
                 if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Snake) currentMobInCell).weight * 2 == weight) {
                     island.location[x][y].add(new Snake(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("snake");
                     count++;
-                    Island.islandMobCount.replace("snake",count);
+                    Island.islandMobCount.replace("snake", count);
                 }
             } else if (currentMobInCell instanceof Wolf) {
                 if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Wolf) currentMobInCell).weight * 2 == weight) {
                     island.location[x][y].add(new Wolf(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("wolf");
                     count++;
-                    Island.islandMobCount.replace("wolf",count);
+                    Island.islandMobCount.replace("wolf", count);
                 }
             }
         }
@@ -296,13 +296,12 @@ public class Simulation implements Runnable {
         for (int i = 0; i < island.location[x][y].size(); i++) {
             Object currentMobInCell = island.location[x][y].get(i);
             String mobClassToString = currentMobInCell.getClass().getSimpleName().toLowerCase();
-            double maxWeight = Double.parseDouble(settings.settingsMap.get(mobClassToString + " weight"));
             double saturationWeight = Double.parseDouble(settings.settingsMap.get(mobClassToString + " saturationFood"));
-            if (maxWeight - ((Animal) currentMobInCell).weight == saturationWeight && island.location[x1][y1]!=null) {
+            if (island.location[x1][y1] != null) {
                 for (int j = 0; j < island.location[x1][y1].size(); j++) {
                     boolean isCanEat = ((Animal) currentMobInCell).toEat(island.location[x1][y1].get(j), settings.settingsMap);
                     if (isCanEat) {
-                        System.out.println(currentMobInCell.getClass().getSimpleName()+ " eaten " + island.location[x1][y1].get(j).getClass().getSimpleName());
+                        System.out.println(currentMobInCell.getClass().getSimpleName() + " eaten " + island.location[x1][y1].get(j).getClass().getSimpleName());
                         if (saturationWeight > ((Animal) island.location[x1][y1].get(j)).weight) {
                             ((Animal) currentMobInCell).weight += ((Animal) island.location[x1][y1].get(j)).weight;
                         } else {
@@ -311,7 +310,7 @@ public class Simulation implements Runnable {
                         String key = island.location[x1][y1].get(j).getClass().getSimpleName().toLowerCase();
                         int count = Island.islandMobCount.get(key);
                         count--;
-                        Island.islandMobCount.replace(key,count);
+                        Island.islandMobCount.replace(key, count);
                         island.location[x1][y1].remove(j);
                         j--;
                     }
@@ -364,7 +363,7 @@ public class Simulation implements Runnable {
                             String key = island.location[x][y].get(i).getClass().getSimpleName().toLowerCase();
                             int count = Island.islandMobCount.get(key);
                             count--;
-                            Island.islandMobCount.replace(key,count);
+                            Island.islandMobCount.replace(key, count);
                             island.location[x][y].remove(i);
                             i--;
                         }

@@ -20,8 +20,5 @@ public class Settings {
             }
         }
         scanner.close();
-//        for (String key : settingsMap.keySet()) {
-//            System.out.println(key+" "+settingsMap.get(key));
-//        }
     }
 }

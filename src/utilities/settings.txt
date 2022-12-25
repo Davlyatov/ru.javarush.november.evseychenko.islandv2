@@ -1,6 +1,9 @@
 island height 15
 island width 15
 
+percents afterMove 1
+percents afterMultiply 1
+
 wolf weight 50
 wolf maxInCell 30
 wolf maxCellSpeed 3

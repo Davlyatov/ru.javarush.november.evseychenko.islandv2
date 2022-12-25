@@ -19,6 +19,7 @@ public class Simulation implements Runnable {
     int island_width;
     int threadPoolSize;
     int ticks = 1;
+    int percentsAfterMove, percentsAfterMultiply;
 
 
     public Simulation(Island island, Settings settings) {
@@ -27,6 +28,8 @@ public class Simulation implements Runnable {
         island_height = Integer.parseInt(settings.settingsMap.get("island height"));
         island_width = Integer.parseInt(settings.settingsMap.get("island width"));
         threadPoolSize = island_height * island_width;
+        percentsAfterMove = Integer.parseInt(settings.settingsMap.get("percents afterMove"));
+        percentsAfterMultiply = Integer.parseInt(settings.settingsMap.get("percents afterMultiply"));
     }
 
     @Override
@@ -36,13 +39,13 @@ public class Simulation implements Runnable {
             System.out.println("moving");
             move(island);
             System.out.println("starvation");
-            loverSatiety(island, settings, 2);
+            loverSatiety(island, settings, percentsAfterMove);
             System.out.println("feeding");
             feed(island, settings);
             System.out.println("multiplying");
             multiply(island, settings);
             System.out.println("starvation");
-            loverSatiety(island, settings, 5);
+            loverSatiety(island, settings, percentsAfterMultiply);
             ticks++;
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
@@ -118,7 +121,7 @@ public class Simulation implements Runnable {
     }
 
     private void multiplyHerbivores(Island island, int x, int y, Settings settings) {
-        Object currentMobInCell = island.location[x][y].stream().findFirst().get();
+        Object currentMobInCell = island.location[x][y].get(0);
         String mobClassToString = currentMobInCell.getClass().getSimpleName().toLowerCase();
         int maxInCell = Integer.parseInt(settings.settingsMap.get(mobClassToString + " maxInCell"));
         int availableMultiplies = island.location[x][y].size() / 2;
@@ -202,7 +205,7 @@ public class Simulation implements Runnable {
     }
 
     private void multiplyPredators(Island island, int x, int y, Settings settings) {
-        Object currentMobInCell = island.location[x][y].stream().findFirst().get();
+        Object currentMobInCell = island.location[x][y].get(0);
         String mobClassToString = currentMobInCell.getClass().getSimpleName().toLowerCase();
         int maxInCell = Integer.parseInt(settings.settingsMap.get(mobClassToString + " maxInCell"));
         int availableMultiplies = island.location[x][y].size() / 2;
@@ -273,19 +276,19 @@ public class Simulation implements Runnable {
     private synchronized void feedMob(Island island, int x, int y, Settings settings) {
         if (island.location[x][y] != null && island.location[x][y].size() > 0) {
             if (checkBorder(x + 1, y)) {
-                if (!(island.location[x][y].stream().findFirst().get() instanceof Caterpillar) && !(island.location[x][y].stream().findFirst().get() instanceof Plant)) {
+                if (!(island.location[x][y].get(0) instanceof Caterpillar) && !(island.location[x][y].get(0) instanceof Plant)) {
                     feedAnimal(x, y, x + 1, y, settings);
                 }
             } else if (checkBorder(x - 1, y)) {
-                if (!(island.location[x][y].stream().findFirst().get() instanceof Caterpillar) && !(island.location[x][y].stream().findFirst().get() instanceof Plant)) {
+                if (!(island.location[x][y].get(0) instanceof Caterpillar) && !(island.location[x][y].get(0) instanceof Plant)) {
                     feedAnimal(x, y, x - 1, y, settings);
                 }
             } else if (checkBorder(x, y + 1)) {
-                if (!(island.location[x][y].stream().findFirst().get() instanceof Caterpillar) && !(island.location[x][y].stream().findFirst().get() instanceof Plant)) {
+                if (!(island.location[x][y].get(0) instanceof Caterpillar) && !(island.location[x][y].get(0) instanceof Plant)) {
                     feedAnimal(x, y, x, y + 1, settings);
                 }
             } else if (checkBorder(x, y - 1)) {
-                if (!(island.location[x][y].stream().findFirst().get() instanceof Caterpillar) && !(island.location[x][y].stream().findFirst().get() instanceof Plant)) {
+                if (!(island.location[x][y].get(0) instanceof Caterpillar) && !(island.location[x][y].get(0) instanceof Plant)) {
                     feedAnimal(x, y, x, y - 1, settings);
                 }
             }
@@ -299,13 +302,26 @@ public class Simulation implements Runnable {
             double saturationWeight = Double.parseDouble(settings.settingsMap.get(mobClassToString + " saturationFood"));
             if (island.location[x1][y1] != null) {
                 for (int j = 0; j < island.location[x1][y1].size(); j++) {
-                    boolean isCanEat = ((Animal) currentMobInCell).toEat(island.location[x1][y1].get(j), settings.settingsMap);
+                    boolean isCanEat;
+                    if (currentMobInCell instanceof Predator) {
+                        isCanEat = ((Predator) currentMobInCell).toEat(island.location[x1][y1].get(j), settings.settingsMap);
+                    } else {
+                        isCanEat = ((Herbivore) currentMobInCell).toEat(island.location[x1][y1].get(j), settings.settingsMap);
+                    }
                     if (isCanEat) {
                         System.out.println(currentMobInCell.getClass().getSimpleName() + " eaten " + island.location[x1][y1].get(j).getClass().getSimpleName());
-                        if (saturationWeight > ((Animal) island.location[x1][y1].get(j)).weight) {
-                            ((Animal) currentMobInCell).weight += ((Animal) island.location[x1][y1].get(j)).weight;
+                        if (island.location[x1][y1].get(j) instanceof Plant) {
+                            if (saturationWeight > ((Plant) island.location[x1][y1].get(j)).weight) {
+                                ((Animal) currentMobInCell).weight += ((Plant) island.location[x1][y1].get(j)).weight;
+                            } else {
+                                ((Animal) currentMobInCell).weight += ((Animal) currentMobInCell).saturationWeight;
+                            }
                         } else {
-                            ((Animal) currentMobInCell).weight += ((Animal) currentMobInCell).saturationWeight;
+                            if (saturationWeight > ((Animal) island.location[x1][y1].get(j)).weight) {
+                                ((Animal) currentMobInCell).weight += ((Animal) island.location[x1][y1].get(j)).weight;
+                            } else {
+                                ((Animal) currentMobInCell).weight += ((Animal) currentMobInCell).saturationWeight;
+                            }
                         }
                         String key = island.location[x1][y1].get(j).getClass().getSimpleName().toLowerCase();
                         int count = Island.islandMobCount.get(key);
@@ -350,16 +366,15 @@ public class Simulation implements Runnable {
     private void starvation(Island island, int x, int y, Settings settings, int percent) {
         if (island.location[x][y] != null) {
             if (island.location[x][y].size() > 0) {
-                if (!(island.location[x][y].stream().findFirst().get() instanceof Plant)
-                        && !(island.location[x][y].stream().findFirst().get() instanceof Caterpillar)) {
-                    Object currentMobInCell = island.location[x][y].stream().findFirst().get();
+                if (!(island.location[x][y].get(0) instanceof Plant)
+                        && !(island.location[x][y].get(0) instanceof Caterpillar)) {
+                    Object currentMobInCell = island.location[x][y].get(0);
                     String mobClassToString = currentMobInCell.getClass().getSimpleName().toLowerCase();
                     double maxWeight = Double.parseDouble(settings.settingsMap.get(mobClassToString + " weight"));
                     double starvationWeight = maxWeight / 100 * percent;
                     for (int i = 0; i < island.location[x][y].size(); i++) {
                         ((Animal) island.location[x][y].get(i)).weight -= starvationWeight;
                         if ((((Animal) island.location[x][y].get(i)).weight <= 0)) {
-//                            System.out.println(island.location[x][y].get(i).getClass().getSimpleName()+"#"+((Animal) island.location[x][y].get(i)).id+" died from hunger");
                             String key = island.location[x][y].get(i).getClass().getSimpleName().toLowerCase();
                             int count = Island.islandMobCount.get(key);
                             count--;

@@ -1,10 +1,12 @@
 package utilities;
 
+import animals.Animal;
 import animals.Plant;
 import animals.herbivores.*;
 import animals.predators.*;
 
 import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;

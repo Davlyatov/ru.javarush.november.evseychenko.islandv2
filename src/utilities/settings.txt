@@ -1,8 +1,8 @@
-island height 15
-island width 15
+island height 10
+island width 10
 
-percents afterMove 1
-percents afterMultiply 1
+percents afterMove 5
+percents afterMultiply 10
 
 wolf weight 50
 wolf maxInCell 30

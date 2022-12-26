@@ -128,73 +128,72 @@ public class Simulation implements Runnable {
         double weight = Double.parseDouble(settings.settingsMap.get(mobClassToString + " weight"));
         double saturationFood = Double.parseDouble(settings.settingsMap.get(mobClassToString + " saturationFood"));
         int speed = Integer.parseInt(settings.settingsMap.get(mobClassToString + " maxCellSpeed"));
-        int multiplyChance = 50;
         for (int i = 0; i < availableMultiplies; i++) {
             if (currentMobInCell instanceof Boar) {
-                if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Boar) currentMobInCell).weight * 2 == weight) {
+                if (island.location[x][y].size() < maxInCell && ((Boar) currentMobInCell).weight * 2 >= weight) {
                     island.location[x][y].add(new Boar(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("boar");
                     count++;
                     Island.islandMobCount.replace("boar", count);
                 }
             } else if (currentMobInCell instanceof Buffalo) {
-                if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Buffalo) currentMobInCell).weight * 2 == weight) {
+                if (island.location[x][y].size() < maxInCell && ((Buffalo) currentMobInCell).weight * 2 >= weight) {
                     island.location[x][y].add(new Buffalo(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("buffalo");
                     count++;
                     Island.islandMobCount.replace("buffalo", count);
                 }
             } else if (currentMobInCell instanceof Caterpillar) {
-                if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell) {
+                if (island.location[x][y].size() < maxInCell) {
                     island.location[x][y].add(new Caterpillar(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("caterpillar");
                     count++;
                     Island.islandMobCount.replace("caterpillar", count);
                 }
             } else if (currentMobInCell instanceof Deer) {
-                if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Deer) currentMobInCell).weight * 2 == weight) {
+                if (island.location[x][y].size() < maxInCell && ((Deer) currentMobInCell).weight * 2 >= weight) {
                     island.location[x][y].add(new Deer(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("deer");
                     count++;
                     Island.islandMobCount.replace("deer", count);
                 }
             } else if (currentMobInCell instanceof Duck) {
-                if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Duck) currentMobInCell).weight * 2 == weight) {
+                if (island.location[x][y].size() < maxInCell && ((Duck) currentMobInCell).weight * 2 >= weight) {
                     island.location[x][y].add(new Duck(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("duck");
                     count++;
                     Island.islandMobCount.replace("duck", count);
                 }
             } else if (currentMobInCell instanceof Goat) {
-                if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Goat) currentMobInCell).weight * 2 == weight) {
+                if (island.location[x][y].size() < maxInCell && ((Goat) currentMobInCell).weight * 2 >= weight) {
                     island.location[x][y].add(new Goat(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("goat");
                     count++;
                     Island.islandMobCount.replace("goat", count);
                 }
             } else if (currentMobInCell instanceof Horse) {
-                if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Horse) currentMobInCell).weight * 2 == weight) {
+                if (island.location[x][y].size() < maxInCell && ((Horse) currentMobInCell).weight * 2 >= weight) {
                     island.location[x][y].add(new Horse(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("horse");
                     count++;
                     Island.islandMobCount.replace("horse", count);
                 }
             } else if (currentMobInCell instanceof Mouse) {
-                if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Mouse) currentMobInCell).weight * 2 == weight) {
+                if (island.location[x][y].size() < maxInCell && ((Mouse) currentMobInCell).weight * 2 >= weight) {
                     island.location[x][y].add(new Mouse(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("mouse");
                     count++;
                     Island.islandMobCount.replace("mouse", count);
                 }
             } else if (currentMobInCell instanceof Rabbit) {
-                if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Rabbit) currentMobInCell).weight * 2 == weight) {
+                if (island.location[x][y].size() < maxInCell && ((Rabbit) currentMobInCell).weight * 2 >= weight) {
                     island.location[x][y].add(new Rabbit(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("rabbit");
                     count++;
                     Island.islandMobCount.replace("rabbit", count);
                 }
             } else if (currentMobInCell instanceof Sheep) {
-                if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Sheep) currentMobInCell).weight * 2 == weight) {
+                if (island.location[x][y].size() < maxInCell && ((Sheep) currentMobInCell).weight * 2 >= weight) {
                     island.location[x][y].add(new Sheep(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("sheep");
                     count++;
@@ -212,38 +211,37 @@ public class Simulation implements Runnable {
         double weight = Double.parseDouble(settings.settingsMap.get(mobClassToString + " weight"));
         double saturationFood = Double.parseDouble(settings.settingsMap.get(mobClassToString + " saturationFood"));
         int speed = Integer.parseInt(settings.settingsMap.get(mobClassToString + " maxCellSpeed"));
-        int multiplyChance = 50;
         for (int i = 0; i < availableMultiplies; i++) {
             if (currentMobInCell instanceof Bear) {
-                if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Bear) currentMobInCell).weight * 2 == weight) {
+                if (island.location[x][y].size() < maxInCell && ((Bear) currentMobInCell).weight * 2 >= weight) {
                     island.location[x][y].add(new Bear(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("bear");
                     count++;
                     Island.islandMobCount.replace("bear", count);
                 }
             } else if (currentMobInCell instanceof Eagle) {
-                if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Eagle) currentMobInCell).weight * 2 == weight) {
+                if (island.location[x][y].size() < maxInCell && ((Eagle) currentMobInCell).weight * 2 >= weight) {
                     island.location[x][y].add(new Eagle(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("eagle");
                     count++;
                     Island.islandMobCount.replace("eagle", count);
                 }
             } else if (currentMobInCell instanceof Fox) {
-                if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Fox) currentMobInCell).weight * 2 == weight) {
+                if (island.location[x][y].size() < maxInCell && ((Fox) currentMobInCell).weight * 2 >= weight) {
                     island.location[x][y].add(new Fox(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("fox");
                     count++;
                     Island.islandMobCount.replace("fox", count);
                 }
             } else if (currentMobInCell instanceof Snake) {
-                if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Snake) currentMobInCell).weight * 2 == weight) {
+                if (island.location[x][y].size() < maxInCell && ((Snake) currentMobInCell).weight * 2 >= weight) {
                     island.location[x][y].add(new Snake(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("snake");
                     count++;
                     Island.islandMobCount.replace("snake", count);
                 }
             } else if (currentMobInCell instanceof Wolf) {
-                if (new Random().nextInt(100) > multiplyChance && island.location[x][y].size() < maxInCell && ((Wolf) currentMobInCell).weight * 2 == weight) {
+                if (island.location[x][y].size() < maxInCell && ((Wolf) currentMobInCell).weight * 2 >= weight) {
                     island.location[x][y].add(new Wolf(weight, saturationFood, speed));
                     int count = Island.islandMobCount.get("wolf");
                     count++;
@@ -273,7 +271,7 @@ public class Simulation implements Runnable {
         }
     }
 
-    private synchronized void feedMob(Island island, int x, int y, Settings settings) {
+    private void feedMob(Island island, int x, int y, Settings settings) {
         if (island.location[x][y] != null && island.location[x][y].size() > 0) {
             if (checkBorder(x + 1, y)) {
                 if (!(island.location[x][y].get(0) instanceof Caterpillar) && !(island.location[x][y].get(0) instanceof Plant)) {
@@ -302,12 +300,7 @@ public class Simulation implements Runnable {
             double saturationWeight = Double.parseDouble(settings.settingsMap.get(mobClassToString + " saturationFood"));
             if (island.location[x1][y1] != null) {
                 for (int j = 0; j < island.location[x1][y1].size(); j++) {
-                    boolean isCanEat;
-                    if (currentMobInCell instanceof Predator) {
-                        isCanEat = ((Predator) currentMobInCell).toEat(island.location[x1][y1].get(j), settings.settingsMap);
-                    } else {
-                        isCanEat = ((Herbivore) currentMobInCell).toEat(island.location[x1][y1].get(j), settings.settingsMap);
-                    }
+                    boolean isCanEat = ((Animal) currentMobInCell).toEat(island.location[x1][y1].get(j), settings.settingsMap);
                     if (isCanEat) {
                         System.out.println(currentMobInCell.getClass().getSimpleName() + " eaten " + island.location[x1][y1].get(j).getClass().getSimpleName());
                         if (island.location[x1][y1].get(j) instanceof Plant) {
@@ -375,6 +368,7 @@ public class Simulation implements Runnable {
                     for (int i = 0; i < island.location[x][y].size(); i++) {
                         ((Animal) island.location[x][y].get(i)).weight -= starvationWeight;
                         if ((((Animal) island.location[x][y].get(i)).weight <= 0)) {
+                            System.out.println(island.location[x][y].get(i).getClass().getSimpleName() + " dien from hunger");
                             String key = island.location[x][y].get(i).getClass().getSimpleName().toLowerCase();
                             int count = Island.islandMobCount.get(key);
                             count--;
@@ -413,115 +407,89 @@ public class Simulation implements Runnable {
     }
 
     private synchronized void moveFromCell(int x, int y, Island island) {
-        if (island.location[x][y] != null) {
-            if (island.location[x][y].size() > 0) {
-                if (island.location[x][y].get(0) instanceof Predator) {
-                    movePredator(x, y, island);
-                } else if (island.location[x][y].get(0) instanceof Herbivore) {
-                    if (!(island.location[x][y].get(0) instanceof Caterpillar)) {
-                        moveHerbivore(x, y, island);
+        if (island.location[x][y] != null && island.location[x][y].size() > 0
+                && !(island.location[x][y].get(0) instanceof Plant) && !(island.location[x][y].get(0) instanceof Caterpillar)) {
+            moveAnimal(x, y, island);
+        }
+    }
+
+    private void moveAnimal(int x, int y, Island island) {
+        for (int i = 0; i < island.location[x][y].size(); i++) {
+            int[] coordinates = ((Animal) island.location[x][y].get(i)).toMove(x, y, island_height, island_width);
+            int x1 = coordinates[0], y1 = coordinates[1];
+            if (checkBorder(x1, y1)) {
+                if (island.location[x1][y1] == null) {
+                    island.location[x1][y1] = new ArrayList<Animal>();
+                    island.location[x1][y1].add(island.location[x][y].get(i));
+                    island.location[x][y].remove(i);
+                    i--;
+                } else {
+                    Object mobTypeInCurrentCell = island.location[x1][y1].get(0);
+                    Object mobTypeInMovingCell = island.location[x][y].get(i);
+                    String classToString = mobTypeInCurrentCell.getClass().getSimpleName().toLowerCase();
+                    int maxMobsInCurrentCell = Integer.parseInt(settings.settingsMap.get(classToString + " maxInCell"));
+                    if (mobTypeInMovingCell instanceof Bear && mobTypeInCurrentCell instanceof Bear && island.location[x1][y1].size() < maxMobsInCurrentCell) {
+                        island.location[x1][y1].add(island.location[x][y].get(i));
+                        island.location[x][y].remove(i);
+                        i--;
+                    } else if (mobTypeInMovingCell instanceof Eagle && mobTypeInCurrentCell instanceof Eagle && island.location[x1][y1].size() < maxMobsInCurrentCell) {
+                        island.location[x1][y1].add(island.location[x][y].get(i));
+                        island.location[x][y].remove(i);
+                        i--;
+                    } else if (mobTypeInMovingCell instanceof Fox && mobTypeInCurrentCell instanceof Fox && island.location[x1][y1].size() < maxMobsInCurrentCell) {
+                        island.location[x1][y1].add(island.location[x][y].get(i));
+                        island.location[x][y].remove(i);
+                        i--;
+                    } else if (mobTypeInMovingCell instanceof Snake && mobTypeInCurrentCell instanceof Snake && island.location[x1][y1].size() < maxMobsInCurrentCell) {
+                        island.location[x1][y1].add(island.location[x][y].get(i));
+                        island.location[x][y].remove(i);
+                        i--;
+                    } else if (mobTypeInMovingCell instanceof Wolf && mobTypeInCurrentCell instanceof Wolf && island.location[x1][y1].size() < maxMobsInCurrentCell) {
+                        island.location[x1][y1].add(island.location[x][y].get(i));
+                        island.location[x][y].remove(i);
+                        i--;
+                    } else if (mobTypeInMovingCell instanceof Boar && mobTypeInCurrentCell instanceof Boar && island.location[x1][y1].size() < maxMobsInCurrentCell) {
+                        island.location[x1][y1].add(island.location[x][y].get(i));
+                        island.location[x][y].remove(i);
+                        i--;
+                    } else if (mobTypeInMovingCell instanceof Buffalo && mobTypeInCurrentCell instanceof Buffalo && island.location[x1][y1].size() < maxMobsInCurrentCell) {
+                        island.location[x1][y1].add(island.location[x][y].get(i));
+                        island.location[x][y].remove(i);
+                        i--;
+                    } else if (mobTypeInMovingCell instanceof Deer && mobTypeInCurrentCell instanceof Deer && island.location[x1][y1].size() < maxMobsInCurrentCell) {
+                        island.location[x1][y1].add(island.location[x][y].get(i));
+                        island.location[x][y].remove(i);
+                        i--;
+                    } else if (mobTypeInMovingCell instanceof Duck && mobTypeInCurrentCell instanceof Duck && island.location[x1][y1].size() < maxMobsInCurrentCell) {
+                        island.location[x1][y1].add(island.location[x][y].get(i));
+                        island.location[x][y].remove(i);
+                        i--;
+                    } else if (mobTypeInMovingCell instanceof Goat && mobTypeInCurrentCell instanceof Goat && island.location[x1][y1].size() < maxMobsInCurrentCell) {
+                        island.location[x1][y1].add(island.location[x][y].get(i));
+                        island.location[x][y].remove(i);
+                        i--;
+                    } else if (mobTypeInMovingCell instanceof Horse && mobTypeInCurrentCell instanceof Horse && island.location[x1][y1].size() < maxMobsInCurrentCell) {
+                        island.location[x1][y1].add(island.location[x][y].get(i));
+                        island.location[x][y].remove(i);
+                        i--;
+                    } else if (mobTypeInMovingCell instanceof Mouse && mobTypeInCurrentCell instanceof Mouse && island.location[x1][y1].size() < maxMobsInCurrentCell) {
+                        island.location[x1][y1].add(island.location[x][y].get(i));
+                        island.location[x][y].remove(i);
+                        i--;
+                    } else if (mobTypeInMovingCell instanceof Rabbit && mobTypeInCurrentCell instanceof Rabbit && island.location[x1][y1].size() < maxMobsInCurrentCell) {
+                        island.location[x1][y1].add(island.location[x][y].get(i));
+                        island.location[x][y].remove(i);
+                        i--;
+                    } else if (mobTypeInMovingCell instanceof Sheep && mobTypeInCurrentCell instanceof Sheep && island.location[x1][y1].size() < maxMobsInCurrentCell) {
+                        island.location[x1][y1].add(island.location[x][y].get(i));
+                        island.location[x][y].remove(i);
+                        i--;
                     }
                 }
-            }
-        }
-    }
-
-    private synchronized void moveHerbivore(int x, int y, Island island) {
-        for (int i = 0; i < island.location[x][y].size(); i++) {
-            int[] coordinates = ((Animal) island.location[x][y].get(i)).toMove(x, y, island_height, island_width);
-            int x1 = coordinates[0], y1 = coordinates[1];
-            if (island.location[x1][y1] == null || island.location[x1][y1].size() == 0) {
-                island.location[x1][y1] = new ArrayList<Animal>();
-                island.location[x1][y1].add(island.location[x][y].get(i));
-                island.location[x][y].remove(i);
-                i--;
-            } else {
-                Object mobsInCurrentCell = island.location[x1][y1].get(0);
-                String classToSting = mobsInCurrentCell.getClass().getSimpleName().toLowerCase();
-                int maxMobsInCurrentCell = Integer.parseInt(settings.settingsMap.get(classToSting + " maxInCell"));
-                if (mobsInCurrentCell instanceof Boar && island.location[x][y].size() < maxMobsInCurrentCell) {
-                    island.location[x1][y1].add(island.location[x][y].get(i));
-                    island.location[x][y].remove(i);
-                    i--;
-                } else if (mobsInCurrentCell instanceof Buffalo && island.location[x][y].size() < maxMobsInCurrentCell) {
-                    island.location[x1][y1].add(island.location[x][y].get(i));
-                    island.location[x][y].remove(i);
-                    i--;
-                } else if (mobsInCurrentCell instanceof Deer && island.location[x][y].size() < maxMobsInCurrentCell) {
-                    island.location[x1][y1].add(island.location[x][y].get(i));
-                    island.location[x][y].remove(i);
-                    i--;
-                } else if (mobsInCurrentCell instanceof Duck && island.location[x][y].size() < maxMobsInCurrentCell) {
-                    island.location[x1][y1].add(island.location[x][y].get(i));
-                    island.location[x][y].remove(i);
-                    i--;
-                } else if (mobsInCurrentCell instanceof Goat && island.location[x][y].size() < maxMobsInCurrentCell) {
-                    island.location[x1][y1].add(island.location[x][y].get(i));
-                    island.location[x][y].remove(i);
-                    i--;
-                } else if (mobsInCurrentCell instanceof Horse && island.location[x][y].size() < maxMobsInCurrentCell) {
-                    island.location[x1][y1].add(island.location[x][y].get(i));
-                    island.location[x][y].remove(i);
-                    i--;
-                } else if (mobsInCurrentCell instanceof Mouse && island.location[x][y].size() < maxMobsInCurrentCell) {
-                    island.location[x1][y1].add(island.location[x][y].get(i));
-                    island.location[x][y].remove(i);
-                    i--;
-                } else if (mobsInCurrentCell instanceof Rabbit && island.location[x][y].size() < maxMobsInCurrentCell) {
-                    island.location[x1][y1].add(island.location[x][y].get(i));
-                    island.location[x][y].remove(i);
-                    i--;
-                } else if (mobsInCurrentCell instanceof Sheep && island.location[x][y].size() < maxMobsInCurrentCell) {
-                    island.location[x1][y1].add(island.location[x][y].get(i));
-                    island.location[x][y].remove(i);
-                    i--;
+                if (island.location[x][y].size() == 0) {
+                    island.location[x][y] = null;
+                    break;
                 }
-            }
-            if (island.location[x][y].size() == 0) {
-                island.location[x][y] = null;
-                break;
-            }
-        }
-    }
-
-    private synchronized void movePredator(int x, int y, Island island) {
-        for (int i = 0; i < island.location[x][y].size(); i++) {
-            int[] coordinates = ((Animal) island.location[x][y].get(i)).toMove(x, y, island_height, island_width);
-            int x1 = coordinates[0], y1 = coordinates[1];
-            if (island.location[x1][y1] == null || island.location[x1][y1].size() == 0) {
-                island.location[x1][y1] = new ArrayList<Animal>();
-                island.location[x1][y1].add(island.location[x][y].get(i));
-                island.location[x][y].remove(i);
-                i--;
-            } else {
-                Object mobsInCurrentCell = island.location[x1][y1].get(0);
-                String classToSting = mobsInCurrentCell.getClass().getSimpleName().toLowerCase();
-                int maxMobsInCurrentCell = Integer.parseInt(settings.settingsMap.get(classToSting + " maxInCell"));
-                if (mobsInCurrentCell instanceof Bear && island.location[x][y].size() < maxMobsInCurrentCell) {
-                    island.location[x1][y1].add(island.location[x][y].get(i));
-                    island.location[x][y].remove(i);
-                    i--;
-                } else if (mobsInCurrentCell instanceof Eagle && island.location[x][y].size() < maxMobsInCurrentCell) {
-                    island.location[x1][y1].add(island.location[x][y].get(i));
-                    island.location[x][y].remove(i);
-                    i--;
-                } else if (mobsInCurrentCell instanceof Fox && island.location[x][y].size() < maxMobsInCurrentCell) {
-                    island.location[x1][y1].add(island.location[x][y].get(i));
-                    island.location[x][y].remove(i);
-                    i--;
-                } else if (mobsInCurrentCell instanceof Snake && island.location[x][y].size() < maxMobsInCurrentCell) {
-                    island.location[x1][y1].add(island.location[x][y].get(i));
-                    island.location[x][y].remove(i);
-                    i--;
-                } else if (mobsInCurrentCell instanceof Wolf && island.location[x][y].size() < maxMobsInCurrentCell) {
-                    island.location[x1][y1].add(island.location[x][y].get(i));
-                    island.location[x][y].remove(i);
-                    i--;
-                }
-            }
-            if (island.location[x][y].size() == 0) {
-                island.location[x][y] = null;
-                break;
             }
         }
     }

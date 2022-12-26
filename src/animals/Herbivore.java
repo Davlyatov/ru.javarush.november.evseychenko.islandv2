@@ -82,9 +82,6 @@ public class Herbivore extends Animal {
             case UP: {
                 int tempY = new Random().nextInt(this.speed) + 1;
                 y += tempY;
-                while (y >= height) {
-                    y--;
-                }
                 coordinates[0] = x;
                 coordinates[1] = y;
                 break;
@@ -92,9 +89,6 @@ public class Herbivore extends Animal {
             case DOWN: {
                 int tempY = new Random().nextInt(this.speed) + 1;
                 y -= tempY;
-                while (y < 0) {
-                    y++;
-                }
                 coordinates[0] = x;
                 coordinates[1] = y;
                 break;
@@ -102,9 +96,6 @@ public class Herbivore extends Animal {
             case RIGHT: {
                 int tempX = new Random().nextInt(this.speed) + 1;
                 x += tempX;
-                while (x >= width) {
-                    x--;
-                }
                 coordinates[0] = x;
                 coordinates[1] = y;
                 break;
@@ -112,9 +103,6 @@ public class Herbivore extends Animal {
             case LEFT: {
                 int tempX = new Random().nextInt(this.speed) + 1;
                 x -= tempX;
-                while (x < 0) {
-                    x++;
-                }
                 coordinates[0] = x;
                 coordinates[1] = y;
                 break;

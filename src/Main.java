@@ -23,6 +23,13 @@ public class Main {
             System.exit(0);
         }
         island.fillAnimals();
+        System.out.println("How to display statistics on the island? (default 1)");
+        System.out.println("1. Show how many animals are on the island in total");
+        System.out.println("2. Show statistics for each island cell");
+        int howToShow = new Scanner(System.in).nextInt();
+        if (howToShow == 2) {
+            island.howShow = 1;
+        }
         island.showIsland();
         System.out.println("Type 'go' for start simulation");
         String command = new Scanner(System.in).nextLine();

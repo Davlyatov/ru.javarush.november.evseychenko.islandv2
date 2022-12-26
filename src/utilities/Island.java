@@ -1,12 +1,10 @@
 package utilities;
 
-import animals.Animal;
 import animals.Plant;
 import animals.herbivores.*;
 import animals.predators.*;
 
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +13,7 @@ import java.util.Random;
 public class Island {
     Settings settings = new Settings();
     public ArrayList[][] location;
+    public int howShow =1;
     public static Map<String, Integer> islandMobCount = new HashMap<>();
 
     public void fillAnimals() throws FileNotFoundException, InterruptedException {
@@ -272,21 +271,25 @@ public class Island {
 
 
     public void showIsland() {
-//        for (Map.Entry<String, Integer> pair : islandMobCount.entrySet()) {
-//            String key = pair.getKey();
-//            int value = pair.getValue();
-//            System.out.println(settings.settingsMap.get(key + " image") + " " + value);
-//        }
-        for (ArrayList[] arrayLists : location) {
-            for (ArrayList arrayList : arrayLists) {
-                if (arrayList == null || arrayList.size() == 0) {
-                    System.out.print("      |");
-                } else {
-                    String image = settings.settingsMap.get(arrayList.get(0).getClass().getSimpleName().toLowerCase() + " image");
-                    System.out.print(image + arrayList.size() + "|");
-                }
+        if (howShow == 0){
+            for (Map.Entry<String, Integer> pair : islandMobCount.entrySet()) {
+                String key = pair.getKey();
+                int value = pair.getValue();
+                System.out.print(settings.settingsMap.get(key + " image") + value+" ");
             }
             System.out.println();
+        } else {
+            for (ArrayList[] arrayLists : location) {
+                for (ArrayList arrayList : arrayLists) {
+                    if (arrayList == null || arrayList.size() == 0) {
+                        System.out.print("      |");
+                    } else {
+                        String image = settings.settingsMap.get(arrayList.get(0).getClass().getSimpleName().toLowerCase() + " image");
+                        System.out.print(image + arrayList.size() + "|");
+                    }
+                }
+                System.out.println();
+            }
         }
     }
 

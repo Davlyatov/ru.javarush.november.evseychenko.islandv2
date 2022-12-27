@@ -271,7 +271,7 @@ public class Island {
 
 
     public void showIsland() {
-        if (howShow == 0){
+        if (howShow == 1){
             for (Map.Entry<String, Integer> pair : islandMobCount.entrySet()) {
                 String key = pair.getKey();
                 int value = pair.getValue();

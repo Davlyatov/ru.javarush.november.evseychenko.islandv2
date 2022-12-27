@@ -293,7 +293,7 @@ public class Simulation implements Runnable {
         }
     }
 
-    private synchronized void feedAnimal(int x, int y, int x1, int y1, Settings settings) {
+    private void feedAnimal(int x, int y, int x1, int y1, Settings settings) {
         for (int i = 0; i < island.location[x][y].size(); i++) {
             Object currentMobInCell = island.location[x][y].get(i);
             String mobClassToString = currentMobInCell.getClass().getSimpleName().toLowerCase();
@@ -302,7 +302,6 @@ public class Simulation implements Runnable {
                 for (int j = 0; j < island.location[x1][y1].size(); j++) {
                     boolean isCanEat = ((Animal) currentMobInCell).toEat(island.location[x1][y1].get(j), settings.settingsMap);
                     if (isCanEat) {
-                        System.out.println(currentMobInCell.getClass().getSimpleName() + " eaten " + island.location[x1][y1].get(j).getClass().getSimpleName());
                         if (island.location[x1][y1].get(j) instanceof Plant) {
                             if (saturationWeight > ((Plant) island.location[x1][y1].get(j)).weight) {
                                 ((Animal) currentMobInCell).weight += ((Plant) island.location[x1][y1].get(j)).weight;

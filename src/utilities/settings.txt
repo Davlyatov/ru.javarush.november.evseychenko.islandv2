@@ -1,5 +1,5 @@
 island height 50
-island width 10
+island width 15
 
 percents afterMove 5
 percents afterMultiply 10

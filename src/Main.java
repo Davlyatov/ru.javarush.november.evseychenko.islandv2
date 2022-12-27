@@ -41,7 +41,7 @@ public class Main {
         executorService.scheduleAtFixedRate(simulation, 0, 5, TimeUnit.SECONDS);
         simulation.stepsCount = stepsCount;
         while (simulation.ticks != stepsCount) {
-            Thread.sleep(100);
+            Thread.sleep(1000);
         }
         executorService.shutdown();
         island.showIsland();

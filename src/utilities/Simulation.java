@@ -35,7 +35,7 @@ public class Simulation implements Runnable {
 
     @Override
     public void run() {
-        if (ticks!=stepsCount) {
+        if (ticks != stepsCount) {
             try {
                 System.out.println("Tick #" + (ticks + 1));
                 System.out.println("moving");

@@ -26,10 +26,7 @@ public class Main {
         System.out.println("How to display statistics on the island? (default 1)");
         System.out.println("1. Show how many animals are on the island in total");
         System.out.println("2. Show statistics for each island cell");
-        int howToShow = new Scanner(System.in).nextInt();
-        if (howToShow == 2) {
-            island.howShow = 1;
-        }
+        island.howToShow = new Scanner(System.in).nextInt();
         island.showIsland();
         System.out.println("Type 'go' for start simulation");
         String command = new Scanner(System.in).nextLine();
@@ -40,10 +37,13 @@ public class Main {
         System.out.println("how much steps do you need?");
         int stepsCount = new Scanner(System.in).nextInt();
         ScheduledExecutorService executorService = Executors.newScheduledThreadPool(3);
-        executorService.scheduleAtFixedRate(new Simulation(island, settings), 0, 10, TimeUnit.SECONDS);
-        Thread.sleep((long) stepsCount * 10 * 1000);
+        Simulation simulation = new Simulation(island, settings);
+        executorService.scheduleAtFixedRate(simulation, 0, 5, TimeUnit.SECONDS);
+        simulation.stepsCount = stepsCount;
+        while (simulation.ticks != stepsCount) {
+            Thread.sleep(100);
+        }
         executorService.shutdown();
-        executorService.awaitTermination(1, TimeUnit.SECONDS);
         island.showIsland();
     }
 

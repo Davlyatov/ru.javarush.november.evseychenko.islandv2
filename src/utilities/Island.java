@@ -13,7 +13,7 @@ import java.util.Random;
 public class Island {
     Settings settings = new Settings();
     public ArrayList[][] location;
-    public int howShow =1;
+    public int howToShow = 1;
     public static Map<String, Integer> islandMobCount = new HashMap<>();
 
     public void fillAnimals() throws FileNotFoundException, InterruptedException {
@@ -271,11 +271,11 @@ public class Island {
 
 
     public void showIsland() {
-        if (howShow == 1){
+        if (howToShow == 1) {
             for (Map.Entry<String, Integer> pair : islandMobCount.entrySet()) {
                 String key = pair.getKey();
                 int value = pair.getValue();
-                System.out.print(settings.settingsMap.get(key + " image") + value+" ");
+                System.out.print(settings.settingsMap.get(key + " image") + value + " ");
             }
             System.out.println();
         } else {

@@ -18,7 +18,8 @@ public class Simulation implements Runnable {
     int island_height;
     int island_width;
     int threadPoolSize;
-    int ticks = 1;
+    public int ticks = 0;
+    public int stepsCount = 0;
     int percentsAfterMove, percentsAfterMultiply;
 
 
@@ -34,21 +35,23 @@ public class Simulation implements Runnable {
 
     @Override
     public void run() {
-        try {
-            System.out.println("Tick #" + ticks);
-            System.out.println("moving");
-            move(island);
-            System.out.println("starvation");
-            loverSatiety(island, settings, percentsAfterMove);
-            System.out.println("feeding");
-            feed(island, settings);
-            System.out.println("multiplying");
-            multiply(island, settings);
-            System.out.println("starvation");
-            loverSatiety(island, settings, percentsAfterMultiply);
-            ticks++;
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        if (ticks!=stepsCount) {
+            try {
+                System.out.println("Tick #" + (ticks + 1));
+                System.out.println("moving");
+                move(island);
+                System.out.println("starvation");
+                loverSatiety(island, settings, percentsAfterMove);
+                System.out.println("feeding");
+                feed(island, settings);
+                System.out.println("multiplying");
+                multiply(island, settings);
+                System.out.println("starvation");
+                loverSatiety(island, settings, percentsAfterMultiply);
+                ticks++;
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
@@ -332,7 +335,7 @@ public class Simulation implements Runnable {
     }
 
     private boolean checkBorder(int x, int y) {
-        return (x < island_width && y < island_height) && (x >= 0 && y >= 0);
+        return (y < island_width && x < island_height) && (x >= 0 && y >= 0);
     }
 
     private void loverSatiety(Island island, Settings settings, int percent) throws InterruptedException {

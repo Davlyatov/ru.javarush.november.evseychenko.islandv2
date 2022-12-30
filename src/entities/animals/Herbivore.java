@@ -12,11 +12,12 @@ import static utilities.Directions.*;
 
 public class Herbivore extends Animal {
 
-    public Herbivore(double weight, double saturationWeight, int speed) {
+    public Herbivore(double weight, double saturationWeight, int speed, boolean isChild) {
         this.id = count.incrementAndGet();
         this.weight = weight;
         this.saturationWeight = saturationWeight;
         this.speed = speed;
+        this.isChild = isChild;
     }
 
     @Override
@@ -79,36 +80,41 @@ public class Herbivore extends Animal {
         int[] coordinates = new int[2];
         Directions chosenDirection = directions[new Random().nextInt(directions.length)];
         switch (chosenDirection) {
-            case UP: {
+            case UP -> {
                 int tempY = new Random().nextInt(this.speed) + 1;
                 y += tempY;
                 coordinates[0] = x;
                 coordinates[1] = y;
-                break;
             }
-            case DOWN: {
+            case DOWN -> {
                 int tempY = new Random().nextInt(this.speed) + 1;
                 y -= tempY;
                 coordinates[0] = x;
                 coordinates[1] = y;
-                break;
             }
-            case RIGHT: {
+            case RIGHT -> {
                 int tempX = new Random().nextInt(this.speed) + 1;
                 x += tempX;
                 coordinates[0] = x;
                 coordinates[1] = y;
-                break;
             }
-            case LEFT: {
+            case LEFT -> {
                 int tempX = new Random().nextInt(this.speed) + 1;
                 x -= tempX;
                 coordinates[0] = x;
                 coordinates[1] = y;
-                break;
             }
         }
         return coordinates;
+    }
+
+    @Override
+    public void growUp() {
+        if (age <= 3) {
+            age++;
+        } else {
+            isChild = false;
+        }
     }
 
 }

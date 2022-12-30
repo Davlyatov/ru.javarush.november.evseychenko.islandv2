@@ -44,7 +44,6 @@ public class Main {
             Thread.sleep(1000);
         }
         executorService.shutdown();
-        island.showIsland();
     }
 
 

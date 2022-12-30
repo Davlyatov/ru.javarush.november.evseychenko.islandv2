@@ -14,9 +14,13 @@ public abstract class Animal {
 
     public abstract int[] toMove(int x, int y, int height, int width);
 
+    public abstract void growUp();
+
     public double weight;
     public int speed;
     public double saturationWeight;
     static final AtomicInteger count = new AtomicInteger(0);
     public int id;
+    public boolean isChild;
+    int age = 0;
 }

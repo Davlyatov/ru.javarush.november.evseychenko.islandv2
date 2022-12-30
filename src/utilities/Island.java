@@ -75,7 +75,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("boar saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("boar maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Boar(weight, saturationFood, speed));
+                location[x][y].add(new Boar(weight, saturationFood, speed, false));
                 int value = islandMobCount.get("boar");
                 value++;
                 islandMobCount.replace("boar", value);
@@ -88,7 +88,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("buffalo saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("buffalo maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Buffalo(weight, saturationFood, speed));
+                location[x][y].add(new Buffalo(weight, saturationFood, speed, false));
                 int value = islandMobCount.get("buffalo");
                 value++;
                 islandMobCount.replace("buffalo", value);
@@ -100,7 +100,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("caterpillar saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("caterpillar maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Caterpillar(weight, saturationFood, speed));
+                location[x][y].add(new Caterpillar(weight, saturationFood, speed, false));
                 int value = islandMobCount.get("caterpillar");
                 value++;
                 islandMobCount.replace("caterpillar", value);
@@ -112,7 +112,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("deer saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("deer maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Deer(weight, saturationFood, speed));
+                location[x][y].add(new Deer(weight, saturationFood, speed, false));
                 int value = islandMobCount.get("deer");
                 value++;
                 islandMobCount.replace("deer", value);
@@ -124,7 +124,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("duck saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("duck maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Duck(weight, saturationFood, speed));
+                location[x][y].add(new Duck(weight, saturationFood, speed, false));
                 int value = islandMobCount.get("duck");
                 value++;
                 islandMobCount.replace("duck", value);
@@ -136,7 +136,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("goat saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("goat maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Goat(weight, saturationFood, speed));
+                location[x][y].add(new Goat(weight, saturationFood, speed, false));
                 int value = islandMobCount.get("goat");
                 value++;
                 islandMobCount.replace("goat", value);
@@ -149,7 +149,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("horse saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("horse maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Horse(weight, saturationFood, speed));
+                location[x][y].add(new Horse(weight, saturationFood, speed, false));
                 int value = islandMobCount.get("horse");
                 value++;
                 islandMobCount.replace("horse", value);
@@ -161,7 +161,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("mouse saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("mouse maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Mouse(weight, saturationFood, speed));
+                location[x][y].add(new Mouse(weight, saturationFood, speed, false));
                 int value = islandMobCount.get("mouse");
                 value++;
                 islandMobCount.replace("mouse", value);
@@ -173,7 +173,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("rabbit saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("rabbit maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Rabbit(weight, saturationFood, speed));
+                location[x][y].add(new Rabbit(weight, saturationFood, speed, false));
                 int value = islandMobCount.get("rabbit");
                 value++;
                 islandMobCount.replace("rabbit", value);
@@ -185,7 +185,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("sheep saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("sheep maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Sheep(weight, saturationFood, speed));
+                location[x][y].add(new Sheep(weight, saturationFood, speed, false));
                 int value = islandMobCount.get("sheep");
                 value++;
                 islandMobCount.replace("sheep", value);
@@ -206,7 +206,7 @@ public class Island {
             speed = Integer.parseInt(settings.settingsMap.get("bear maxCellSpeed"));
             saturationFood = Double.parseDouble(settings.settingsMap.get("bear saturationFood"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Bear(weight, saturationFood, speed));
+                location[x][y].add(new Bear(weight, saturationFood, speed, false));
                 int value = islandMobCount.get("bear");
                 value++;
                 islandMobCount.replace("bear", value);
@@ -220,7 +220,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("eagle saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("eagle maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Eagle(weight, saturationFood, speed));
+                location[x][y].add(new Eagle(weight, saturationFood, speed, false));
                 int value = islandMobCount.get("eagle");
                 value++;
                 islandMobCount.replace("eagle", value);
@@ -233,7 +233,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("fox saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("fox maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Fox(weight, saturationFood, speed));
+                location[x][y].add(new Fox(weight, saturationFood, speed, false));
                 int value = islandMobCount.get("fox");
                 value++;
                 islandMobCount.replace("fox", value);
@@ -247,7 +247,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("snake saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("snake maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Snake(weight, saturationFood, speed));
+                location[x][y].add(new Snake(weight, saturationFood, speed, false));
                 int value = islandMobCount.get("snake");
                 value++;
                 islandMobCount.replace("snake", value);
@@ -260,7 +260,7 @@ public class Island {
             saturationFood = Double.parseDouble(settings.settingsMap.get("wolf saturationFood"));
             speed = Integer.parseInt(settings.settingsMap.get("wolf maxCellSpeed"));
             for (int k = 0; k < count; k++) {
-                location[x][y].add(new Wolf(weight, saturationFood, speed));
+                location[x][y].add(new Wolf(weight, saturationFood, speed, false));
                 int value = islandMobCount.get("wolf");
                 value++;
                 islandMobCount.replace("wolf", value);

@@ -1,11 +1,11 @@
 package utilities;
 
-import animals.Animal;
-import animals.Herbivore;
-import animals.Plant;
-import animals.Predator;
-import animals.predators.*;
-import animals.herbivores.*;
+import entities.animals.Animal;
+import entities.animals.Herbivore;
+import entities.Plant;
+import entities.animals.Predator;
+import entities.animals.predators.*;
+import entities.animals.herbivores.*;
 
 import java.util.ArrayList;
 import java.util.Random;

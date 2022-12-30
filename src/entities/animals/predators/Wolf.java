@@ -1,6 +1,6 @@
-package animals.predators;
+package entities.animals.predators;
 
-import animals.Predator;
+import entities.animals.Predator;
 
 public class Wolf extends Predator {
     public Wolf(double weight, double saturationWeight, int speed) {

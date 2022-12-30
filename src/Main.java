@@ -24,7 +24,7 @@ public class Main {
         }
         island.fillAnimals();
         System.out.println("How to display statistics on the island? (default 1)");
-        System.out.println("1. Show how many animals are on the island in total");
+        System.out.println("1. Show how many entities.animals are on the island in total");
         System.out.println("2. Show statistics for each island cell");
         island.howToShow = new Scanner(System.in).nextInt();
         island.showIsland();

@@ -1,6 +1,6 @@
-package animals.herbivores;
+package entities.animals.herbivores;
 
-import animals.Herbivore;
+import entities.animals.Herbivore;
 
 public class Sheep extends Herbivore {
     public Sheep(double weight, double saturationWeight, int speed) {

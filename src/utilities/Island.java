@@ -1,8 +1,8 @@
 package utilities;
 
-import animals.Plant;
-import animals.herbivores.*;
-import animals.predators.*;
+import entities.Plant;
+import entities.animals.herbivores.*;
+import entities.animals.predators.*;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

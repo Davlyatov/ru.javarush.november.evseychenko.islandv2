@@ -1,4 +1,4 @@
-package animals;
+package entities.animals;
 
 import utilities.Directions;
 

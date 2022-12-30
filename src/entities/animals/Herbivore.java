@@ -1,4 +1,4 @@
-package animals;
+package entities.animals;
 
 
 import utilities.Directions;
@@ -10,16 +10,14 @@ import java.util.Random;
 
 import static utilities.Directions.*;
 
+public class Herbivore extends Animal {
 
-public class Predator extends Animal {
-
-    public Predator(double weight, double saturationWeight, int speed) {
+    public Herbivore(double weight, double saturationWeight, int speed) {
         this.id = count.incrementAndGet();
         this.weight = weight;
         this.saturationWeight = saturationWeight;
         this.speed = speed;
     }
-
 
     @Override
     public boolean toEat(Object victim, Map<String, String> settingsMap) {
@@ -76,7 +74,7 @@ public class Predator extends Animal {
     }
 
     @Override
-    public synchronized int[] toMove(int x, int y, int height, int width) {
+    public int[] toMove(int x, int y, int height, int width) {
         Directions[] directions = chooseDirection(x, y, height, width);
         int[] coordinates = new int[2];
         Directions chosenDirection = directions[new Random().nextInt(directions.length)];

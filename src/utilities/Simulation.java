@@ -18,7 +18,7 @@ public class Simulation implements Runnable {
     int island_height;
     int island_width;
     int threadPoolSize;
-    public int ticks = 0;
+    public int steps = 0;
     public int stepsCount = 0;
     int percentsAfterMove, percentsAfterMultiply;
 
@@ -35,34 +35,30 @@ public class Simulation implements Runnable {
 
     @Override
     public void run() {
-        if (ticks != stepsCount) {
+        if (steps != stepsCount) {
             try {
-                System.out.println("Tick #" + (ticks + 1));
-                System.out.println("moving");
-                move(island);
-                System.out.println("starvation");
-                loverSatiety(island, settings, percentsAfterMove);
-                System.out.println("feeding");
-                feed(island, settings);
-                System.out.println("multiplying");
-                multiply(island, settings);
-                System.out.println("starvation");
-                loverSatiety(island, settings, percentsAfterMultiply);
-                ticks++;
+                System.out.println("Step #" + (steps + 1));
+                createMoveThreads(island);
+                createSatietyThreads(island, settings, percentsAfterMove);
+                createFeedThreads(island, settings);
+                createMultiplyThreads(island, settings);
+                createSatietyThreads(island, settings, percentsAfterMultiply);
+                island.showIsland();
+                steps++;
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         }
     }
 
-    private void multiply(Island island, Settings settings) throws InterruptedException {
+    private void createMultiplyThreads(Island island, Settings settings) throws InterruptedException {
         Thread[] multiplyThreads = new Thread[island_height * island_width];
         int i = 0;
         for (int x = 0; x < island.location.length; x++) {
             for (int y = 0; y < island.location[x].length; y++) {
                 int finalX = x;
                 int finalY = y;
-                Thread thread = new Thread(() -> multiplyMob(finalX, finalY, island, settings));
+                Thread thread = new Thread(() -> multiplyEntity(finalX, finalY, island, settings));
                 multiplyThreads[i] = thread;
                 i++;
             }
@@ -75,7 +71,7 @@ public class Simulation implements Runnable {
         }
     }
 
-    private void multiplyMob(int x, int y, Island island, Settings settings) {
+    private void multiplyEntity(int x, int y, Island island, Settings settings) {
         if (island.location[x][y] != null) {
             if (island.location[x][y].size() > 0) {
                 if (island.location[x][y].get(0) instanceof Predator) {
@@ -254,14 +250,14 @@ public class Simulation implements Runnable {
         }
     }
 
-    private void feed(Island island, Settings settings) throws InterruptedException {
+    private void createFeedThreads(Island island, Settings settings) throws InterruptedException {
         Thread[] feedThreads = new Thread[island_height * island_width];
         int i = 0;
         for (int x = 0; x < island.location.length; x++) {
             for (int y = 0; y < island.location[x].length; y++) {
                 int finalX = x;
                 int finalY = y;
-                Thread thread = new Thread(() -> feedMob(island, finalX, finalY, settings));
+                Thread thread = new Thread(() -> checkLocationForFeed(island, finalX, finalY, settings));
                 feedThreads[i] = thread;
                 i++;
             }
@@ -274,7 +270,7 @@ public class Simulation implements Runnable {
         }
     }
 
-    private void feedMob(Island island, int x, int y, Settings settings) {
+    private void checkLocationForFeed(Island island, int x, int y, Settings settings) {
         if (island.location[x][y] != null && island.location[x][y].size() > 0) {
             if (checkBorder(x + 1, y)) {
                 if (!(island.location[x][y].get(0) instanceof Caterpillar) && !(island.location[x][y].get(0) instanceof Plant)) {
@@ -338,7 +334,7 @@ public class Simulation implements Runnable {
         return (y < island_width && x < island_height) && (x >= 0 && y >= 0);
     }
 
-    private void loverSatiety(Island island, Settings settings, int percent) throws InterruptedException {
+    private void createSatietyThreads(Island island, Settings settings, int percent) throws InterruptedException {
         Thread[] satietyThreads = new Thread[island_height * island_width];
         int i = 0;
         for (int x = 0; x < island.location.length; x++) {
@@ -370,11 +366,12 @@ public class Simulation implements Runnable {
                     for (int i = 0; i < island.location[x][y].size(); i++) {
                         ((Animal) island.location[x][y].get(i)).weight -= starvationWeight;
                         if ((((Animal) island.location[x][y].get(i)).weight <= 0)) {
-                            System.out.println(island.location[x][y].get(i).getClass().getSimpleName() + " dien from hunger");
                             String key = island.location[x][y].get(i).getClass().getSimpleName().toLowerCase();
                             int count = Island.islandMobCount.get(key);
                             count--;
-                            Island.islandMobCount.replace(key, count);
+                            if (!(count < 0)) {
+                                Island.islandMobCount.replace(key, count);
+                            }
                             island.location[x][y].remove(i);
                             i--;
                         }
@@ -388,14 +385,14 @@ public class Simulation implements Runnable {
         }
     }
 
-    private void move(Island island) throws InterruptedException {
+    private void createMoveThreads(Island island) throws InterruptedException {
         Thread[] moveThreads = new Thread[threadPoolSize];
         int i = 0;
         for (int x = 0; x < island.location.length; x++) {
             for (int y = 0; y < island.location[x].length; y++) {
                 int finalX = x;
                 int finalY = y;
-                Thread thread = new Thread(() -> moveFromCell(finalX, finalY, island));
+                Thread thread = new Thread(() -> checkCell(finalX, finalY, island));
                 moveThreads[i] = thread;
                 i++;
             }
@@ -408,7 +405,7 @@ public class Simulation implements Runnable {
         }
     }
 
-    private synchronized void moveFromCell(int x, int y, Island island) {
+    private synchronized void checkCell(int x, int y, Island island) {
         if (island.location[x][y] != null && island.location[x][y].size() > 0
                 && !(island.location[x][y].get(0) instanceof Plant) && !(island.location[x][y].get(0) instanceof Caterpillar)) {
             moveAnimal(x, y, island);
